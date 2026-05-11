@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>自媒体 AI 变现工具导航｜选题·内容·转化</title>
+  <meta name="description" content="自媒体 AI 变现工具导航：选题增长、爆款内容、投放素材、私域转化与复盘常用工具合集。支持分类、搜索、收藏与推荐；纯静态单页适配 GitHub Pages。" />
+  <meta property="og:title" content="自媒体 AI 变现工具导航" />
+  <meta property="og:description" content="选题增长、爆款内容、投放素材、私域转化与复盘工具合集。支持分类、搜索与收藏；纯静态单页可直接部署。" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg2:#ecfdf5;
+      --panel:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:rgba(15,23,42,.10);
+      --shadow:0 16px 46px rgba(15,23,42,.10);
+      --accent:#10b981;
+      --accent2:#059669;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      line-height:1.5;
+      background:
+        radial-gradient(900px 420px at 10% 0%, rgba(16,185,129,.16), transparent 55%),
+        radial-gradient(760px 360px at 92% 6%, rgba(59,130,246,.10), transparent 58%),
+        radial-gradient(520px 280px at 40% 96%, rgba(5,150,105,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg2), var(--bg));
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:14px}
+    .topbar{position:sticky;top:0;z-index:20;backdrop-filter: blur(10px);background: rgba(255,255,255,.74);border-bottom:1px solid var(--line)}
+    .topbar-inner{display:flex;align-items:center;gap:14px;justify-content:space-between;padding:12px 18px;max-width:1180px;margin:0 auto}
+    .brand{display:flex;align-items:center;gap:10px;min-width:240px}
+    .logo{width:34px;height:34px;border-radius:12px;background: radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.45), transparent 60%), linear-gradient(135deg, rgba(16,185,129,1), rgba(59,130,246,.78));box-shadow: 0 12px 26px rgba(16,185,129,.18)}
+    .brand-text{display:flex;flex-direction:column;line-height:1.1}
+    .brand-title{font-weight:950;letter-spacing:.2px}
+    .brand-sub{font-size:12px;color:var(--muted);margin-top:1px}
+    .navlinks{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;flex:1;min-width:0}
+    .navlinks a{font-size:12.5px;color: rgba(15,23,42,.80);padding:8px 10px;border-radius:999px;border:1px solid rgba(15,23,42,.10);background: rgba(255,255,255,.88);transition: transform .12s ease, border-color .12s ease;white-space:nowrap}
+    .navlinks a:hover{transform: translateY(-1px); border-color: rgba(16,185,129,.26)}
+    .actions{display:flex;align-items:center;gap:10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(15,23,42,.10);background: rgba(255,255,255,.90);color:var(--text);border-radius:999px;padding:10px 14px;font-size:13px;cursor:pointer;user-select:none;transition: transform .12s ease, background .12s ease, border-color .12s ease}
+    .btn:hover{transform: translateY(-1px); border-color: rgba(16,185,129,.26)}
+    .btn.primary{background: linear-gradient(135deg, rgba(16,185,129,1), rgba(59,130,246,.95));border-color: rgba(16,185,129,.30);color:#fff}
+    .btn.ghost{background:transparent}
+    .layout{display:grid;grid-template-columns: 1fr 320px;gap:18px;margin-top:12px}
+    .panel{background: var(--panel);border: 1px solid rgba(15,23,42,.10);border-radius: var(--radius);box-shadow: var(--shadow)}
+    .panel.pad{padding:14px}
+    .anchor{scroll-margin-top: 92px}
+    .hero-banner{border-radius: 22px;background: radial-gradient(820px 340px at 14% 20%, rgba(16,185,129,.60), transparent 56%), radial-gradient(760px 320px at 86% 18%, rgba(59,130,246,.40), transparent 58%), radial-gradient(520px 280px at 36% 86%, rgba(5,150,105,.18), transparent 60%), linear-gradient(135deg, #0b1222, #052319);box-shadow: 0 20px 74px rgba(15,23,42,.18);padding: 16px 12px 18px}
+    .hero-inner{max-width: 980px; margin: 0 auto; text-align:center}
+    .hero-title{font-size:22px; letter-spacing:.2px; margin:0; font-weight:950; color:#fff}
+    .hero-sub{margin:8px 0 0;color: rgba(226,232,240,.90);font-size:12.5px}
+    .hero-search{margin: 12px auto 0;display:flex;align-items:center;gap:10px;width: min(760px, 100%);padding: 12px 14px;border-radius: 999px;background: rgba(2,6,23,.58);border: 1px solid rgba(255,255,255,.16);box-shadow: 0 22px 70px rgba(2,6,23,.28)}
+    .hero-search svg{opacity:.92;color:rgba(255,255,255,.92)}
+    .hero-search input{flex:1;border:0;outline:0;background:transparent;color: rgba(255,255,255,.95);font-size: 14px}
+    .hero-search input::placeholder{color: rgba(226,232,240,.82)}
+    .hero-meta{margin: 10px auto 0;width: min(760px, 100%);display:flex;justify-content:center;gap:10px;flex-wrap:wrap;color: rgba(226,232,240,.82);font-size: 12px}
+    .hero-meta b{color:#fff}
+    .hero-links{margin: 10px auto 0;width: min(860px, 100%);display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .hero-links a{font-size:12px;padding:7px 10px;border-radius:999px;background: rgba(255,255,255,.10);border: 1px solid rgba(255,255,255,.16);color: rgba(226,232,240,.92);transition: transform .12s ease, border-color .12s ease, background .12s ease;white-space:nowrap}
+    .hero-links a:hover{transform: translateY(-1px); border-color: rgba(16,185,129,.45); background: rgba(255,255,255,.13)}
+    .recommend-wrap{margin-top: 12px;background: rgba(255,255,255,.96);border: 1px solid rgba(15,23,42,.10);border-radius: 22px;box-shadow: 0 18px 60px rgba(15,23,42,.10);overflow:hidden}
+    .recommend-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding: 10px 12px;border-bottom: 1px solid rgba(15,23,42,.08);color: rgba(15,23,42,.78);font-size:12.5px}
+    .recommend-left{display:flex;flex-direction:column;gap:6px;min-width:0}
+    .recommend-tabs{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .seg{padding:6px 10px;border-radius:999px;border:1px solid rgba(15,23,42,.10);background: rgba(248,250,252,.95);color: rgba(15,23,42,.78);font-size:12px;cursor:pointer;user-select:none;transition: transform .12s ease, border-color .12s ease, background .12s ease}
+    .seg:hover{transform: translateY(-1px); border-color: rgba(16,185,129,.22)}
+    .seg.active{background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.20); color: rgba(5,150,105,.98)}
+    .recommend-desc{font-size:12px;color: rgba(15,23,42,.70);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .recommend-body{padding: 10px 12px 12px}
+    .rec-grid{display:grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap:14px}
+    .rec-card{border: 1px solid rgba(15,23,42,.10);background: rgba(255,255,255,.96);border-radius: 16px;padding: 14px;display:flex;align-items:flex-start;gap:12px;min-height: 94px;cursor:pointer;user-select:none;transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease}
+    .rec-card:hover{transform: translateY(-2px); border-color: rgba(16,185,129,.20); box-shadow: 0 14px 30px rgba(15,23,42,.08)}
+    .rec-icon{width:46px;height:46px;border-radius:16px;display:flex;align-items:center;justify-content:center;background: linear-gradient(135deg, rgba(16,185,129,.14), rgba(59,130,246,.10));color: rgba(5,150,105,.98);overflow:hidden;flex:0 0 auto}
+    .rec-icon img{width:100%;height:100%;object-fit:cover;display:block}
+    .rec-icon svg{width:22px;height:22px}
+    .rec-text{min-width:0;display:flex;flex-direction:column;gap:4px}
+    .rec-name{font-weight:950;font-size:13px;color: rgba(15,23,42,.92);line-height:1.2}
+    .rec-sub{font-size:12px;color: rgba(100,116,139,.92);white-space:normal;overflow:visible;line-height:1.35}
+    .rec-hint{margin-top:10px;font-size:12px;color: rgba(100,116,139,.92)}
+    .tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling: touch;gap:8px;padding:10px 12px;border-top:1px solid rgba(15,23,42,.10)}
+    .tab{padding:8px 10px;border-radius:999px;border:1px solid rgba(15,23,42,.10);background: rgba(248,250,252,.95);color: rgba(15,23,42,.84);font-size:12px;white-space:nowrap;cursor:pointer;transition: background .12s ease, border-color .12s ease, transform .12s ease}
+    .tab:hover{transform: translateY(-1px); border-color: rgba(16,185,129,.22)}
+    .tab.active{background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.20); color: rgba(15,23,42,.92)}
+    .cat-quick{display:flex;gap:10px;padding: 10px 12px 12px;border-top: 1px solid rgba(15,23,42,.10);overflow-x:auto;-webkit-overflow-scrolling: touch}
+    .cat-btn{border: 1px solid rgba(15,23,42,.10);background: rgba(255,255,255,.92);border-radius: 16px;padding: 9px 10px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;user-select:none;min-width: 92px;transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease}
+    .cat-btn:hover{transform: translateY(-2px); border-color: rgba(16,185,129,.20); box-shadow: 0 14px 30px rgba(15,23,42,.08)}
+    .cat-btn.active{border-color: rgba(16,185,129,.22); box-shadow: 0 14px 30px rgba(16,185,129,.10)}
+    .cat-ico{width: 34px; height: 34px;border-radius: 12px;display:flex;align-items:center;justify-content:center;background: linear-gradient(135deg, rgba(16,185,129,.14), rgba(59,130,246,.10));color: rgba(5,150,105,.98)}
+    .cat-name{font-size:12px; color: rgba(15,23,42,.80); text-align:center; line-height:1.2}
+    .grid{display:grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap:12px;padding:14px 16px 16px;border-top:1px solid rgba(15,23,42,.10)}
+    .card{border:1px solid rgba(15,23,42,.10);background: rgba(255,255,255,.96);border-radius: var(--radius);padding:12px;display:flex;flex-direction:column;gap:10px;min-height: 150px;transition: transform .12s ease, border-color .12s ease}
+    .card:hover{transform: translateY(-2px); border-color: rgba(16,185,129,.20)}
+    .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .card-title{font-weight:950;font-size:13.5px;margin:0}
+    .card-desc{margin:0;color:var(--muted);font-size:12.5px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(15,23,42,.10);background: rgba(248,250,252,.95);color: rgba(15,23,42,.72)}
+    .card-actions{display:flex;align-items:center;gap:8px;margin-top:auto}
+    .mini{padding:8px 10px;border-radius:999px;border:1px solid rgba(15,23,42,.10);background: rgba(248,250,252,.95);color: rgba(15,23,42,.86);font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+    .mini.primary{background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.20)}
+    .mini:hover{border-color: rgba(16,185,129,.20)}
+    .star{width:34px;height:34px;border-radius:999px;border:1px solid rgba(15,23,42,.10);background: rgba(248,250,252,.95);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .star[aria-pressed="true"]{border-color: rgba(16,185,129,.28); background: rgba(16,185,129,.12)}
+    .muted{color:var(--muted)}
+    .rightcol{display:flex;flex-direction:column;gap:12px}
+    .badge{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(16,185,129,.20);background: rgba(16,185,129,.12);color: rgba(5,150,105,.98)}
+    .foot{margin:18px 0 30px;padding:14px 16px;border-top:1px solid rgba(15,23,42,.10);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .foot a{color:rgba(15,23,42,.78)}
+    .foot a:hover{color:rgba(15,23,42,.92)}
+    .divider{width:1px;height:12px;background: rgba(15,23,42,.10)}
+    .toast{position: fixed;left: 50%;transform: translateX(-50%);bottom: 18px;background: rgba(15,23,42,.92);border: 1px solid rgba(15,23,42,.18);border-radius: 999px;padding: 10px 14px;font-size: 12.5px;color: rgba(255,255,255,.96);box-shadow: var(--shadow);opacity: 0;pointer-events: none;transition: opacity .18s ease, transform .18s ease;z-index: 60;max-width: calc(100vw - 24px);text-align:center}
+    .toast.show{opacity:1; transform: translateX(-50%) translateY(-6px)}
+    .left-ad{position: fixed;left: 14px;top: 116px;z-index: 30;width: 214px;border: 1px solid rgba(15,23,42,.10);border-radius: 18px;background: rgba(255,255,255,.94);box-shadow: 0 18px 60px rgba(15,23,42,.10);overflow:hidden}
+    .left-ad-head{padding: 10px 10px 0;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .left-ad-title{font-weight:950;font-size:13px;color: rgba(15,23,42,.92)}
+    .left-ad-body{padding: 10px}
+    .left-ad-body p{margin:0;color: rgba(100,116,139,.92);font-size:12px;line-height:1.55}
+    .left-ad-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .left-ad .mini{padding:7px 10px}
+    @media (max-width: 1220px){.left-ad{display:none}}
+    .float-cta{position: fixed;right: 18px;bottom: 18px;z-index: 55;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+    .fab{border-radius: 999px;padding: 12px 14px;background: linear-gradient(135deg, rgba(16,185,129,1), rgba(59,130,246,.95));color: white;border: 1px solid rgba(16,185,129,.50);box-shadow: 0 18px 40px rgba(16,185,129,.14);cursor:pointer;font-size: 13px;display:inline-flex;align-items:center;gap:8px;user-select:none}
+    .fab.secondary{background: rgba(255,255,255,.92);color: rgba(15,23,42,.86);border-color: rgba(15,23,42,.12);box-shadow: var(--shadow)}
+    .inline-ad{grid-column: 1 / -1; border-radius: var(--radius); overflow:hidden}
+    .content-sections{display:grid;gap:12px;margin-top:14px}
+    .section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .section-title{margin:0;font-size:14px;font-weight:950}
+    .section-sub{margin:4px 0 0;color:var(--muted);font-size:12.5px}
+    @media (max-width: 980px){.layout{grid-template-columns: 1fr}.rightcol{order:-1}.brand{min-width:0}.navlinks{justify-content:flex-start}}
+    @media (max-width: 860px){.grid{grid-template-columns: repeat(2, minmax(0, 1fr))}}
+    @media (max-width: 520px){.topbar-inner{flex-wrap:wrap}.brand{width:100%}.navlinks{width:100%;justify-content:flex-start}.actions{width:100%;justify-content:flex-end}.grid{grid-template-columns: 1fr}.float-cta{right: 12px; bottom: 12px}.hero-title{font-size:22px}}
+    @media (max-width: 980px){.rec-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}}
+    @media (max-width: 720px){.rec-grid{grid-template-columns: repeat(1, minmax(0, 1fr))}}
+  </style>
+</head>
+<body>
+  <aside class="left-ad" aria-label="侧边广告">
+    <div class="left-ad-head">
+      <div class="left-ad-title">1bgp.com 服务器推荐</div>
+      <span class="badge">赞助</span>
+    </div>
+    <div class="left-ad-body">
+      <p>适合跑内容站、自动化脚本、数据抓取与 AI 服务：云服务器/物理机可选，按需扩容。</p>
+      <div class="left-ad-actions">
+        <a class="mini primary" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="leftad_primary">了解配置</a>
+        <a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="leftad_secondary">进入官网</a>
+      </div>
+    </div>
+  </aside>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="brand-title">自媒体 AI 变现工具导航</div>
+          <div class="brand-sub">选题 · 内容 · 投放 · 私域 · 复盘</div>
+        </div>
+      </div>
+
+      <nav class="navlinks" aria-label="自媒体导航">
+        <a href="#tools" data-event="nav_tools">工具导航</a>
+        <a href="#mm-topic" data-event="nav_topic">选题增长</a>
+        <a href="#mm-content" data-event="nav_content">爆款内容</a>
+        <a href="#mm-convert" data-event="nav_convert">转化成交</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn ghost" id="showFavs" data-event="nav_show_favs" type="button">只看收藏</button>
+        <button class="btn primary" id="submitTool" data-event="nav_submit_tool" type="button">服务器选型</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-banner" aria-label="搜索区域">
+      <div class="hero-inner">
+        <h1 class="hero-title">自媒体 AI 变现工具导航</h1>
+        <div class="hero-sub">覆盖选题增长、爆款内容、投放素材、私域转化与复盘的常用工具入口</div>
+
+        <div class="hero-search" role="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" opacity=".95"/>
+            <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".95"/>
+          </svg>
+          <input id="q" type="text" autocomplete="off" placeholder="搜索 AI 工具 / 关键词 / 场景…" />
+        </div>
+
+        <div class="hero-meta">
+          <span>当前分类：<b id="activeCat">全部</b></span>
+          <span>匹配结果：<b id="count">0</b></span>
+        </div>
+
+        <div class="hero-links" aria-label="快捷入口">
+          <a href="#mm-topic" data-event="hero_topic">选题增长</a>
+          <a href="#mm-content" data-event="hero_content">爆款内容</a>
+          <a href="#mm-convert" data-event="hero_convert">转化成交</a>
+          <a href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="hero_1bgp">1bgp 服务器</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="recommend-wrap" aria-label="推荐工具">
+      <div class="recommend-head">
+        <div class="recommend-left">
+          <div class="recommend-tabs" role="tablist" aria-label="推荐切换">
+            <button class="seg active" type="button" data-rec="recommend" data-event="rec_tab_recommend" aria-selected="true">工具推荐</button>
+            <button class="seg" type="button" data-rec="recent" data-event="rec_tab_recent" aria-selected="false">最近使用</button>
+          </div>
+          <div class="recommend-desc" id="recommendDesc">入口推荐 + 全量工具（可滚动浏览），外链图标失败会自动兜底。</div>
+        </div>
+        <div></div>
+      </div>
+      <div class="recommend-body">
+        <div class="rec-grid" id="recommendGrid" aria-label="推荐工具列表"></div>
+        <div class="rec-hint" id="recommendHint" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="layout anchor" id="tools">
+      <section class="panel" aria-label="工具列表">
+        <div class="tabs" id="tabs" role="tablist" aria-label="分类筛选"></div>
+        <div class="cat-quick" id="catQuick" aria-label="分类图标"></div>
+        <div class="grid" id="grid" aria-live="polite"></div>
+
+        <div class="foot">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span class="muted">© <span id="year"></span> 自媒体 AI 变现工具导航</span>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#" id="openDisclaimer" data-event="open_disclaimer">免责声明</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#" id="openPrivacy" data-event="open_privacy">隐私政策</a>
+          </div>
+          <div class="muted">外链仅供参考，请自行甄别风险。</div>
+        </div>
+      </section>
+
+      <aside class="rightcol" aria-label="侧栏">
+        <section class="panel pad">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <div>
+              <div style="font-weight:950">1bgp.com 服务器推荐</div>
+              <div class="muted" style="font-size:12px;margin-top:4px">云服务器 · 物理服务器 · OpenClaw/算力部署</div>
+            </div>
+            <span class="badge">推荐</span>
+          </div>
+          <div class="muted" style="font-size:12.5px;margin-top:10px;line-height:1.7">
+            适合跑工具站、自动化脚本、数据抓取与 AI 服务：从测试到上线可按需扩容。
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <a class="mini primary" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="cta_1bgp_primary">去官网选型</a>
+            <a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="cta_1bgp_secondary">查看报价</a>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="content-sections">
+      <section class="panel pad anchor" id="mm-topic" aria-label="选题增长">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">选题增长</h2>
+            <p class="section-sub">选题库、趋势词、用户痛点与内容矩阵（后续可添加文章）。</p>
+          </div>
+        </div>
+        <div class="muted" style="font-size:12.5px;margin-top:10px">暂无更新</div>
+      </section>
+
+      <section class="panel pad anchor" id="mm-content" aria-label="爆款内容">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">爆款内容</h2>
+            <p class="section-sub">标题结构、脚本模板、封面排版、素材生产与批量化。</p>
+          </div>
+        </div>
+        <div class="muted" style="font-size:12.5px;margin-top:10px">暂无更新</div>
+      </section>
+
+      <section class="panel pad anchor" id="mm-convert" aria-label="转化成交">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">转化成交</h2>
+            <p class="section-sub">投放素材、私域承接、话术、留资表单与复盘。</p>
+          </div>
+        </div>
+        <div class="muted" style="font-size:12.5px;margin-top:10px">暂无更新</div>
+      </section>
+    </section>
+  </main>
+
+  <div class="float-cta">
+    <a class="fab" id="fabMain" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="fab_1bgp">打开 1bgp 官网</a>
+    <button class="fab secondary" id="fabTop" data-event="fab_back_top" type="button">回到顶部</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const tools = [
+      { name: "ChatGPT", desc: "通用对话与写作助手，适合内容生成与问题解答。", url: "https://chat.openai.com", cat: "对话/助手", tags: ["写作","问答","通用"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fchat.openai.com&v=2" },
+      { name: "Kimi", desc: "长文阅读与写作助手，适合总结资料、写方案与对话。", url: "https://kimi.moonshot.cn", cat: "对话/助手", tags: ["长文","总结","中文"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fstatics.moonshot.cn%2Fkimi-web-seo%2Ffavicon.ico&v=2" },
+      { name: "豆包", desc: "面向日常办公与内容生成的对话助手。", url: "https://www.doubao.com", cat: "对话/助手", tags: ["中文","办公","写作"], icon: "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp" },
+      { name: "通义千问", desc: "通用对话与创作助手，覆盖写作、问答与办公。", url: "https://tongyi.aliyun.com", cat: "对话/助手", tags: ["中文","通用","办公"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Ftongyi.aliyun.com&v=2" },
+      { name: "Claude", desc: "长文本理解与总结表现突出，适合报告与资料整理。", url: "https://claude.ai", cat: "对话/助手", tags: ["总结","长文","分析"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fclaude.ai&v=2" },
+      { name: "Gemini", desc: "多模态能力强，适合搜索式问答与内容辅助。", url: "https://gemini.google.com", cat: "对话/助手", tags: ["多模态","问答","办公"], icon: "https://www.iliudar.com/api/icon?url=https%3A%2F%2Fgemini.google.com&v=2" },
+      { name: "Perplexity", desc: "检索增强问答，适合快速查资料与引用。", url: "https://www.perplexity.ai", cat: "对话/助手", tags: ["检索","引用","快速"] },
+      { name: "Notion AI", desc: "知识库与写作结合，适合团队文档与 SOP。", url: "https://www.notion.so/product/ai", cat: "办公/知识库", tags: ["文档","SOP","协作"] },
+      { name: "Gamma", desc: "一键生成演示文稿，适合汇报与路演。", url: "https://gamma.app", cat: "办公/知识库", tags: ["PPT","汇报","排版"] },
+      { name: "Canva", desc: "设计模板丰富，结合 AI 快速产出海报。", url: "https://www.canva.com", cat: "图片生成", tags: ["海报","模板","设计"] },
+      { name: "Remove.bg", desc: "一键抠图去背景，适合电商与素材制作。", url: "https://www.remove.bg", cat: "图片生成", tags: ["抠图","电商","素材"] },
+      { name: "CapCut", desc: "短视频剪辑与模板，适合快速出片。", url: "https://www.capcut.com", cat: "视频/音频", tags: ["剪辑","模板","短视频"] },
+      { name: "Jasper", desc: "营销文案写作，适合广告与落地页。", url: "https://www.jasper.ai", cat: "营销/文案", tags: ["文案","营销","广告"] },
+      { name: "Copy.ai", desc: "多场景文案模板，适合社媒与投放。", url: "https://www.copy.ai", cat: "营销/文案", tags: ["社媒","投放","模板"] },
+      { name: "Ahrefs", desc: "SEO 分析与关键词研究，适合站点增长。", url: "https://ahrefs.com", cat: "营销/文案", tags: ["SEO","关键词","分析"] },
+      { name: "Tally", desc: "轻量表单，适合收集线索与报名。", url: "https://tally.so", cat: "设计/产品", tags: ["表单","线索","报名"] },
+      { name: "GA4", desc: "站点统计分析，适合基础数据监测。", url: "https://analytics.google.com", cat: "数据/分析", tags: ["统计","转化","监测"] }
+    ];
+
+    tools.unshift(
+      { name: "DeepSeek", desc: "推理与编码能力强，适合写代码、解题与长链路思考。", url: "https://chat.deepseek.com", cat: "对话/助手", tags: ["推理","编码","免费"], icon: "https://www.aig123.com/wp-content/uploads/2024/05/deepseek.png" },
+      { name: "腾讯元宝", desc: "腾讯 AI 助手，覆盖搜索、解析与创作场景。", url: "https://yuanbao.tencent.com", cat: "对话/助手", tags: ["腾讯","中文","办公"], icon: "https://www.aig123.com/wp-content/uploads/2024/05/yuanbao.png" },
+      { name: "夸克AI", desc: "夸克 AI 能力入口，适合搜索与内容辅助。", url: "https://www.quark.cn", cat: "对话/助手", tags: ["搜索","中文","效率"], icon: "https://www.aig123.com/wp-content/uploads/2024/05/kuake.png" }
+    );
+
+    const state = { activeCat: "全部", q: "", favOnly: false, favs: new Set() };
+    const els = {
+      q: document.getElementById("q"),
+      recommendGrid: document.getElementById("recommendGrid"),
+      recommendDesc: document.getElementById("recommendDesc"),
+      recommendHint: document.getElementById("recommendHint"),
+      tabs: document.getElementById("tabs"),
+      catQuick: document.getElementById("catQuick"),
+      grid: document.getElementById("grid"),
+      activeCat: document.getElementById("activeCat"),
+      count: document.getElementById("count"),
+      showFavs: document.getElementById("showFavs"),
+      year: document.getElementById("year"),
+      toast: document.getElementById("toast"),
+      submitTool: document.getElementById("submitTool")
+    };
+    const LS_KEY = "media1:favs";
+    const REC_KEY = "media1:recent";
+    function getCategories(items){const set=new Set(items.map(x=>x.cat));return ["全部",...Array.from(set).sort((a,b)=>a.localeCompare(b,"zh-Hans-CN"))]}
+    function normalize(s){return (s||"").toLowerCase().trim()}
+    function matchesQuery(item,q){if(!q) return true;const hay=[item.name,item.desc,item.cat,...(item.tags||[])].join(" ").toLowerCase();return hay.includes(q)}
+    function shouldShow(item){if(state.activeCat!=="全部"&&item.cat!==state.activeCat) return false;if(state.favOnly&&!state.favs.has(item.name)) return false;if(!matchesQuery(item,state.q)) return false;return true}
+    function escapeHtml(s){return String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
+    function toast(msg){els.toast.textContent=msg;els.toast.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>els.toast.classList.remove("show"),1600)}
+    function track(el){const ev=el?.dataset?.event;if(!ev) return;window.__events=window.__events||[];window.__events.push({event:ev,ts:Date.now()})}
+    function saveFavs(){localStorage.setItem(LS_KEY,JSON.stringify(Array.from(state.favs)))}
+    function loadFavs(){try{const raw=localStorage.getItem(LS_KEY);if(!raw) return;const arr=JSON.parse(raw);if(Array.isArray(arr)) state.favs=new Set(arr)}catch(_){}} 
+    function loadRecents(){try{const raw=localStorage.getItem(REC_KEY);if(!raw) return [];const arr=JSON.parse(raw);return Array.isArray(arr)?arr.filter(Boolean):[]}catch(_){return []}}
+    function saveRecents(list){try{localStorage.setItem(REC_KEY,JSON.stringify(list.slice(0,12)))}catch(_){}} 
+    function pushRecent(name){if(!name) return;const list=loadRecents();const next=[name,...list.filter(x=>x!==name)].slice(0,12);saveRecents(next)}
+    function updateCounts(n){if(typeof n==="number") els.count.textContent=String(n)}
+    function iconSvg(cat){
+      const common={
+        "对话/助手":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H11l-4 3v-3H7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        "办公/知识库":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v14H7a2 2 0 0 0-2 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/><path d="M7 20h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "图片生成":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor" opacity=".9"/><path d="M4 16l4-4 4 4 3-3 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        "视频/音频":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="2"/><path d="M17 10.5 21 8v8l-4-2.5v-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        "营销/文案":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11h4l10-6v14l-10-6H4v-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 13v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        "开发/效率":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 18 22 12 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6 2 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        "设计/产品":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 3 8v8l9 5 9-5V8l-9-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 12 3 8m9 4 9-4" stroke="currentColor" stroke-width="2" opacity=".85"/></svg>`,
+        "数据/分析":`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 16v-5m4 5V7m4 9v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
+      };
+      return common[cat]||`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+    }
+    function toolIconSvg(){return iconSvg("营销/文案")}
+    function toolIconHtml(tool){if(tool?.icon){return `<img src="${escapeHtml(tool.icon)}" alt="${escapeHtml(tool.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-icon-name="${escapeHtml(tool.name)}" />`;}return toolIconSvg()}
+    function attachIconFallback(root){if(!root) return;root.querySelectorAll('img[data-icon-name]').forEach(img=>{img.addEventListener("error",()=>{const wrap=img.parentElement;if(!wrap) return;wrap.innerHTML=toolIconSvg()},{once:true})})}
+    function renderTabs(){const categories=getCategories(tools);els.tabs.innerHTML=categories.map(cat=>{const active=cat===state.activeCat?"active":"";return `<button class="tab ${active}" type="button" role="tab" aria-selected="${active?"true":"false"}" data-cat="${escapeHtml(cat)}" data-event="tab_${escapeHtml(cat)}">${escapeHtml(cat)}</button>`}).join("")}
+    function renderCatQuick(){const categories=getCategories(tools).filter(x=>x!=="全部").slice(0,16);els.catQuick.innerHTML=categories.map(cat=>{const active=cat===state.activeCat?"active":"";return `<button class="cat-btn ${active}" type="button" data-cat="${escapeHtml(cat)}" data-event="cat_${escapeHtml(cat)}"><span class="cat-ico">${iconSvg(cat)}</span><span class="cat-name">${escapeHtml(cat)}</span></button>`}).join("")}
+    function renderInlineAd(){return `<div class="panel inline-ad" role="region" aria-label="信息流广告"><div style="padding:12px 12px 0;display:flex;align-items:center;justify-content:space-between;gap:10px"><span class="muted" style="font-size:12px">信息流赞助</span><span class="badge">1bgp</span></div><div style="padding:12px"><div style="font-weight:950">1bgp.com 云服务器 / 物理服务器</div><div class="muted" style="margin-top:6px;font-size:12.5px;line-height:1.6">适合部署工具站、AI Agent 与推理服务；按需扩容，快速上线。</div><div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap"><a class="mini primary" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="ad_feed_click">了解方案</a><a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="ad_feed_contact">进入官网</a></div></div></div>`}
+    function renderGrid(){
+      const list=tools.filter(shouldShow);
+      els.activeCat.textContent=state.activeCat;
+      updateCounts(list.length);
+      if(list.length===0){els.grid.innerHTML=`<div class="card" style="grid-column:1 / -1"><div class="card-title">没有匹配结果</div><p class="card-desc">试试更换分类或减少关键词，或取消“只看收藏”。</p><div class="card-actions"><button class="mini primary" type="button" id="resetFilters" data-event="reset_filters">重置筛选</button><a class="mini" href="https://www.1bgp.com/" target="_blank" rel="noopener noreferrer" data-event="cta_from_empty">去 1bgp.com 看看</a></div></div>`;document.getElementById("resetFilters").addEventListener("click",(e)=>{track(e.currentTarget);state.activeCat="全部";state.q="";state.favOnly=false;els.q.value="";els.showFavs.textContent="只看收藏";renderTabs();renderCatQuick();renderGrid();toast("已重置筛选")});return;}
+      const nodes=[];const insertAt=Math.min(8,list.length);
+      list.forEach((item,idx)=>{if(idx===insertAt) nodes.push(renderInlineAd());const fav=state.favs.has(item.name);nodes.push(`<article class="card"><div class="card-head"><div><h3 class="card-title">${escapeHtml(item.name)}</h3><p class="card-desc">${escapeHtml(item.desc)}</p></div><button class="star" type="button" aria-label="收藏" aria-pressed="${fav?"true":"false"}" data-fav="${escapeHtml(item.name)}" data-event="fav_toggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 17.3 6.2 20.6l1.1-6.6L2.6 9.7l6.6-1 2.8-6 2.8 6 6.6 1-4.7 4.3 1.1 6.6L12 17.3Z" stroke="currentColor" stroke-width="2" opacity="${fav?"1":".7"}" fill="${fav?"rgba(16,185,129,.24)":"transparent"}"/></svg></button></div><div class="tags"><span class="tag">${escapeHtml(item.cat)}</span>${(item.tags||[]).slice(0,3).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join("")}</div><div class="card-actions"><a class="mini primary" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" data-event="tool_open" data-tool="${escapeHtml(item.name)}">打开</a><button class="mini" type="button" data-event="tool_copy" data-copy="${escapeHtml(item.name)}｜${escapeHtml(item.url)}">复制链接</button></div></article>`)});
+      els.grid.innerHTML=nodes.join("");
+      els.grid.querySelectorAll("[data-fav]").forEach(btn=>{btn.addEventListener("click",(e)=>{track(e.currentTarget);const name=e.currentTarget.getAttribute("data-fav");if(!name) return;if(state.favs.has(name)) state.favs.delete(name); else state.favs.add(name);saveFavs();renderGrid();toast(state.favs.has(name)?"已收藏":"已取消收藏")})});
+      els.grid.querySelectorAll("[data-copy]").forEach(btn=>{btn.addEventListener("click",async (e)=>{track(e.currentTarget);const text=e.currentTarget.getAttribute("data-copy")||"";try{await navigator.clipboard.writeText(text);toast("已复制到剪贴板")}catch(_){const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.left="-9999px";document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();toast("已复制到剪贴板")}})});
+      els.grid.querySelectorAll('a[data-event="tool_open"]').forEach(a=>{a.addEventListener("click",(e)=>{track(e.currentTarget);const name=e.currentTarget.getAttribute("data-tool")||"";pushRecent(name)})});
+    }
+    function renderRecommend(mode){
+      const prefer=["ChatGPT","Kimi","Claude","DeepSeek","Jasper","Copy.ai","Ahrefs","Canva","Gamma","Notion AI","Tally","GA4"];
+      let list=[];
+      if(mode==="recent"){const recentNames=loadRecents();list=recentNames.map(n=>tools.find(t=>t.name===n)).filter(Boolean);els.recommendDesc.textContent="最近打开过的工具（仅保存在本地浏览器）。";els.recommendHint.textContent=list.length?"":"暂无最近使用记录。点击任意工具后将自动出现。";}
+      else{const picked=[];for(const n of prefer){const t=tools.find(x=>x.name===n);if(t) picked.push(t);}for(const t of tools){if(!picked.some(x=>x.name===t.name)) picked.push(t);}list=picked;els.recommendDesc.textContent="入口推荐 + 全量工具（可滚动浏览），外链图标失败会自动兜底。";els.recommendHint.textContent="";}
+      els.recommendGrid.innerHTML=list.map(t=>`<a class="rec-card" href="${escapeHtml(t.url)}" target="_blank" rel="noopener noreferrer" data-event="rec_open_${escapeHtml(t.name)}" data-tool="${escapeHtml(t.name)}"><span class="rec-icon">${toolIconHtml(t)}</span><span class="rec-text"><span class="rec-name">${escapeHtml(t.name)}</span><span class="rec-sub">${escapeHtml(t.desc||"")}</span></span></a>`).join("");
+      attachIconFallback(els.recommendGrid);
+      els.recommendGrid.querySelectorAll("a").forEach(a=>{a.addEventListener("click",(e)=>{track(e.currentTarget);const name=e.currentTarget.getAttribute("data-tool")||"";pushRecent(name)})});
+    }
+    function setActiveCat(cat){state.activeCat=cat;renderTabs();renderCatQuick();renderGrid()}
+    function init(){
+      loadFavs();
+      els.year.textContent=String(new Date().getFullYear());
+      renderRecommend("recommend");
+      renderTabs();
+      renderCatQuick();
+      renderGrid();
+      updateCounts(tools.length);
+      const recTabs=document.querySelectorAll("[data-rec]");
+      recTabs.forEach(btn=>{btn.addEventListener("click",(e)=>{track(e.currentTarget);const mode=e.currentTarget.getAttribute("data-rec")||"recommend";recTabs.forEach(x=>{const active=x===e.currentTarget;x.classList.toggle("active",active);x.setAttribute("aria-selected",active?"true":"false")});renderRecommend(mode)})});
+      els.q.addEventListener("input",()=>{state.q=normalize(els.q.value);renderGrid()});
+      els.tabs.addEventListener("click",(e)=>{const btn=e.target.closest("[data-cat]");if(!btn) return;track(btn);const cat=btn.getAttribute("data-cat");if(!cat) return;setActiveCat(cat)});
+      els.catQuick.addEventListener("click",(e)=>{const btn=e.target.closest("[data-cat]");if(!btn) return;track(btn);const cat=btn.getAttribute("data-cat");if(!cat) return;setActiveCat(cat)});
+      els.showFavs.addEventListener("click",(e)=>{track(e.currentTarget);state.favOnly=!state.favOnly;els.showFavs.textContent=state.favOnly?"显示全部":"只看收藏";renderGrid();toast(state.favOnly?"仅显示收藏":"显示全部")});
+      document.getElementById("fabTop").addEventListener("click",(e)=>{track(e.currentTarget);window.scrollTo({top:0,behavior:"smooth"})});
+      els.submitTool.addEventListener("click",(e)=>{track(e.currentTarget);window.open("https://www.1bgp.com/","_blank","noopener,noreferrer")});
+      document.getElementById("openDisclaimer").addEventListener("click",(e)=>{e.preventDefault();track(e.currentTarget);toast("免责声明：本站内容仅供参考，外链服务与风险由第三方承担。")});
+      document.getElementById("openPrivacy").addEventListener("click",(e)=>{e.preventDefault();track(e.currentTarget);toast("隐私政策：收藏数据仅保存在你的浏览器本地，不会上传。")});
+    }
+    init();
+  </script>
+</body>
+</html>
